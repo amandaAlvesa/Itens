@@ -7,24 +7,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.amanda.itens.entities.Item;
+import com.amanda.itens.entities.Categoria;
 import com.amanda.itens.repository.ItemRepository;
+import com.amanda.itens.repository.CategoriaRepository;
 
 @Service
 public class ItemService {
 
 	@Autowired
-	ItemRepository repository;
+	ItemRepository itemRepository;
 	
 	public Item adicionar(Item item) {
-		return repository.save(item);
+		return itemRepository.save(item);
 	}
 	
 	public List<Item> retornar() {
-		return repository.findAll();
+		return itemRepository.findAll();
 	}
 	
 	public Optional<Item> pegarPorId(Long id) {
-		return repository.findById(id);
+		return itemRepository.findById(id);
 	}
 	
 }
