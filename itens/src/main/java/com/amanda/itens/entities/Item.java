@@ -20,7 +20,7 @@ import lombok.Setter;
 @AllArgsConstructor
 
 @Entity
-@Table(name="tb_itens")
+@Table(name="tb_item")
 public class Item {
 	
 	@Id

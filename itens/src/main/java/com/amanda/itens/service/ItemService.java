@@ -1,5 +1,8 @@
 package com.amanda.itens.service;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,4 +18,13 @@ public class ItemService {
 	public Item adicionar(Item item) {
 		return repository.save(item);
 	}
+	
+	public List<Item> retornar() {
+		return repository.findAll();
+	}
+	
+	public Optional<Item> pegarPorId(Long id) {
+		return repository.findById(id);
+	}
+	
 }
