@@ -28,4 +28,8 @@ public class Categoria {
 	private String categoria;
 	private Integer quantidadeNaCategoria;
 	
+	public Categoria(Long categoriaLong) {
+		String cate = String.valueOf(categoriaLong);
+		setCategoria(cate);
+	}
 }

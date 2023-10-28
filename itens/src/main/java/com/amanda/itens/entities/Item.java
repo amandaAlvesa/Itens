@@ -1,9 +1,9 @@
 package com.amanda.itens.entities;
 
 import java.time.LocalDate;
+import java.util.Optional;
 
-import org.hibernate.annotations.ManyToAny;
-
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;

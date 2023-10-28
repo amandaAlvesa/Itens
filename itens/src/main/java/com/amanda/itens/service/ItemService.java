@@ -20,12 +20,8 @@ public class ItemService {
 	@Autowired
 	ItemRepository itemRepository;
 	
-	@Autowired
-	CategoriaRepository categoriaRepository;
-	
 	public void adicionar(Item item) {
-		 Optional<Categoria> categoria = categoriaRepository.findById(item.getCategoria());
-		// new Belonging(item, categoria);
+		 new Belonging(item, new Categoria(item.getCategoria()));
 		 itemRepository.save(item);
 	} 
 	
