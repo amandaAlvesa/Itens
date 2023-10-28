@@ -34,5 +34,4 @@ public class Item {
 	private LocalDate dataComprada;
 	private LocalDate dataVencimento;
 	private Long categoria;
-	
 }

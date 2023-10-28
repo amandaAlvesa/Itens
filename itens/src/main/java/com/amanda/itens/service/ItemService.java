@@ -25,7 +25,7 @@ public class ItemService {
 	
 	public void adicionar(Item item) {
 		 Optional<Categoria> categoria = categoriaRepository.findById(item.getCategoria());
-		 new Belonging(item, categoria);
+		// new Belonging(item, categoria);
 		 itemRepository.save(item);
 	} 
 	
@@ -37,4 +37,7 @@ public class ItemService {
 		return itemRepository.findById(id);
 	}
 	
+	public void remover(Long id) {
+		itemRepository.deleteById(id);
+	}
 }
