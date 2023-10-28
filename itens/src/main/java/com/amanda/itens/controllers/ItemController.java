@@ -25,9 +25,9 @@ public class ItemController {
 	private ItemService service;
 	
 	@PostMapping()
-	public ResponseEntity<Item> add(@RequestBody Item item) {
-		return ResponseEntity.status(HttpStatus.OK).body(service.adicionar(item));
-	}
+	public void add(@RequestBody Item item) {
+		service.adicionar(item);
+	} 
 	
 	@GetMapping()
 	public List<Item> retornar(){
