@@ -1,8 +1,6 @@
 package com.amanda.itens.entities;
 
 
-import java.util.Optional;
-
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;

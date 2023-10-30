@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.amanda.itens.dto.CategoriaDto;
 import com.amanda.itens.entities.Categoria;
+import com.amanda.itens.projection.CategoriaProjection;
 import com.amanda.itens.service.CategoriaService;
 
 @RestController
@@ -31,7 +32,7 @@ public class CategoriasController {
 	}
 	
 	@GetMapping
-	List<CategoriaDto> categorias() {
+	List<Categoria> categorias() {
 		return service.categorias();
 	}
 	
@@ -43,5 +44,10 @@ public class CategoriasController {
 	@DeleteMapping("/{id}")
 	void remover(@PathVariable Long id) {
 		service.remover(id);
+	}
+	
+	@GetMapping("/{categoriaId}/itens")
+	List<CategoriaProjection> listaCategoria(@PathVariable Long categoriaId){
+		return service.listaCategoria(categoriaId);
 	}
 }

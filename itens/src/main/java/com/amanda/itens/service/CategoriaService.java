@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.amanda.itens.dto.CategoriaDto;
 import com.amanda.itens.entities.Categoria;
+import com.amanda.itens.projection.CategoriaProjection;
 import com.amanda.itens.repository.CategoriaRepository;
 import com.amanda.itens.repository.ItemRepository;
 
@@ -24,16 +25,19 @@ public class CategoriaService {
 		return repository.save(result);
 	}
 
-	public List<CategoriaDto> categorias(){
+	public List<Categoria> categorias(){
 		List<Categoria> categoria = repository.findAll();
-		List<CategoriaDto> result = categoria.stream().map(c -> new CategoriaDto(c.getCategoria(), c.getQuantidadeNaCategoria())).toList();
-		return result;
+		//List<CategoriaDto> result = categoria.stream().map(c -> new CategoriaDto(c.getCategoria(), c.getQuantidadeNaCategoria())).toList();
+		return categoria;
 	}
 	
 	public Optional<Categoria> pegarCategoria(Long id) {
 		return repository.findById(id);
 	}
 	
+	public List<CategoriaProjection> listaCategoria(Long categoria){
+		return repository.searchByList(categoria);
+	}
 	
 //	public List<Categoria> adicionarNaCategoria(Categoria categoria, Long item){
 //		repository.existsById(categoria);
