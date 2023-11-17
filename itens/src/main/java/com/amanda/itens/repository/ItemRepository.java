@@ -15,8 +15,8 @@ import jakarta.transaction.Transactional;
 
 @Transactional
 public interface ItemRepository extends JpaRepository<Item, Long> {
-	@Modifying
-	@Query(nativeQuery = true, value = """
-			INSERT INTO tb_item(id, produto, quantidade, data_comprada, data_vencimento, categoria) VALUES (1,2,3,4,5,6)""")
-	List<CategoriaProjection> addItem(Long idItem, String produtoItem, Integer quantidadeItem, LocalDate dataCompradaItem, LocalDate dataVencimentoItem, Categorias categoriaItem);
+//	@Modifying
+//	@Query(nativeQuery = true, value = """
+//			INSERT INTO tb_item(id, produto, quantidade, data_comprada, data_vencimento, categoria) VALUES (1,2,3,4,5,6)""")
+//	List<CategoriaProjection> addItem(Long idItem, String produtoItem, Integer quantidadeItem, LocalDate dataCompradaItem, LocalDate dataVencimentoItem, Categorias categoriaItem);
 }

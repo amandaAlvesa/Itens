@@ -19,7 +19,7 @@ public class ItemService {
 	public void adicionar(Item item) {
 		// new Belonging(item, new Categoria(item.getCategoria()));
 		 itemRepository.save(item);
-		 itemRepository.addItem(item.getId(), item.getProduto(), item.getQuantidade(), item.getDataComprada(), item.getDataVencimento(), item.getCategoria());
+		 //itemRepository.addItem(item.getId(), item.getProduto(), item.getQuantidade(), item.getDataComprada(), item.getDataVencimento(), item.getCategoria());
 	} 
 	
 	public List<Item> retornar() {
