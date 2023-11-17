@@ -1,14 +1,14 @@
 package com.amanda.itens.entities;
 
 import java.time.LocalDate;
-import java.util.Optional;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -22,16 +22,20 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="tb_item")
+@Table(name = "tb_item")
 public class Item {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	private String produto;
 	private Integer quantidade;
 	private LocalDate dataComprada;
 	private LocalDate dataVencimento;
-	private Long categoria;
+	
+	@Enumerated(EnumType.STRING)
+	@Column(name = "categoria", nullable = false)
+	private Categorias categoria;
+
 }

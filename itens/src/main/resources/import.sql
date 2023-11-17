@@ -1,1 +1,3 @@
-INSERT INTO tb_belonging (categoria_id, item_id) VALUES (3, 1)
+
+
+

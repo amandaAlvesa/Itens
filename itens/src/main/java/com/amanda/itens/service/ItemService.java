@@ -6,13 +6,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.amanda.itens.entities.Belonging;
-import com.amanda.itens.entities.Categoria;
 import com.amanda.itens.entities.Item;
-import com.amanda.itens.repository.CategoriaRepository;
 import com.amanda.itens.repository.ItemRepository;
 
-import jakarta.persistence.ManyToOne;
 
 @Service
 public class ItemService {
@@ -21,8 +17,9 @@ public class ItemService {
 	ItemRepository itemRepository;
 	
 	public void adicionar(Item item) {
-		 new Belonging(item, new Categoria(item.getCategoria()));
+		// new Belonging(item, new Categoria(item.getCategoria()));
 		 itemRepository.save(item);
+		 itemRepository.addItem(item.getId(), item.getProduto(), item.getQuantidade(), item.getDataComprada(), item.getDataVencimento(), item.getCategoria());
 	} 
 	
 	public List<Item> retornar() {
