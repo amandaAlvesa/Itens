@@ -33,9 +33,6 @@ public class Item {
 	private Integer quantidade;
 	private LocalDate dataComprada;
 	private LocalDate dataVencimento;
-	
-	@Enumerated(EnumType.STRING)
-	@Column(name = "categoria", nullable = false)
 	private Categorias categoria;
 
 }

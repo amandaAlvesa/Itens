@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.amanda.itens.entities.Categorias;
 import com.amanda.itens.entities.Item;
 import com.amanda.itens.service.ItemService;
 
@@ -41,4 +42,10 @@ public class ItemController {
 	void deletar(@PathVariable Long id) {
 		service.remover(id);
 	}
+	
+	@GetMapping("/categoria")
+	List<Item> categoriaEspecifica(@RequestBody Categorias categoria){
+		return service.pegarCategoria(categoria);
+	}
+
 }

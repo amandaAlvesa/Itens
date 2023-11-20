@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.amanda.itens.entities.Categorias;
 import com.amanda.itens.entities.Item;
 import com.amanda.itens.repository.ItemRepository;
 
@@ -32,5 +33,9 @@ public class ItemService {
 	
 	public void remover(Long id) {
 		itemRepository.deleteById(id);
+	}
+	
+	public List<Item> pegarCategoria(Categorias categorias){
+		return itemRepository.findByCategoria(categorias);
 	}
 }
