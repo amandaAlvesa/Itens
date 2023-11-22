@@ -24,8 +24,9 @@ public class ItemController {
 	private ItemService service;
 	
 	@PostMapping()
-	public void add(@RequestBody Item item) {
+	public Item add(@RequestBody Item item) {
 		service.adicionar(item);
+		return item;
 	} 
 	
 	@GetMapping()
@@ -40,6 +41,7 @@ public class ItemController {
 	
 	@DeleteMapping("/{id}")
 	void deletar(@PathVariable Long id) {
+		retornoDeId(id);
 		service.remover(id);
 	}
 	

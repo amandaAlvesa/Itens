@@ -10,12 +10,18 @@ import com.amanda.itens.entities.Categorias;
 import com.amanda.itens.entities.Item;
 import com.amanda.itens.repository.ItemRepository;
 
+import lombok.NoArgsConstructor;
 
+@NoArgsConstructor
 @Service
 public class ItemService {
 
 	@Autowired
-	ItemRepository itemRepository;
+	private ItemRepository itemRepository;
+	
+	public Optional<Item> item(Long id) {
+		return pegarPorId(id);
+	}
 	
 	public void adicionar(Item item) {
 		// new Belonging(item, new Categoria(item.getCategoria()));
@@ -33,6 +39,7 @@ public class ItemService {
 	
 	public void remover(Long id) {
 		itemRepository.deleteById(id);
+		
 	}
 	
 	public List<Item> pegarCategoria(Categorias categorias){

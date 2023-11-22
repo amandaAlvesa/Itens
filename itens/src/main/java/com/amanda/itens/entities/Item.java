@@ -31,7 +31,9 @@ public class Item {
 
 	private String produto;
 	private Integer quantidade;
+	@Column(name = "data_comprada")
 	private LocalDate dataComprada;
+	@Column(name="data_vencimento")
 	private LocalDate dataVencimento;
 	private Categorias categoria;
 
