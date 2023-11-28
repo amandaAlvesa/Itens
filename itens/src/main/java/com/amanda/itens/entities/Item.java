@@ -2,6 +2,8 @@ package com.amanda.itens.entities;
 
 import java.time.LocalDate;
 
+import com.amanda.itens.Enums.Categorias;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;

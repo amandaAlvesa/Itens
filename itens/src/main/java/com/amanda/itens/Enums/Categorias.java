@@ -1,4 +1,4 @@
-package com.amanda.itens.entities;
+package com.amanda.itens.Enums;
 
 public enum Categorias {
 		ALIMENTO_PERECIVEL,
