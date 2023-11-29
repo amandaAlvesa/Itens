@@ -42,4 +42,8 @@ public class ItensController {
 		return listService.ProdutosVencidos();
 	}
 	
+	@GetMapping("/historico")
+	List<Item> listaHistorico(){
+		return listService.historico();
+	}
 }

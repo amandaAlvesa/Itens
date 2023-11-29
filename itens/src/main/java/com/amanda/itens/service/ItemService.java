@@ -34,4 +34,15 @@ public class ItemService {
 	public void remover(Long id) {
 		itemRepository.deleteById(id);
 	}
+	
+	public void modificarProduto(Long id, Item novoItem){
+		pegarPorId(id).map(item -> {
+			item.setProduto(novoItem.getProduto());
+			item.setQuantidade(novoItem.getQuantidade());
+			item.setDataComprada(novoItem.getDataComprada());
+			item.setDataVencimento(novoItem.getDataVencimento());
+			item.setCategoria(novoItem.getCategoria());
+			return novoItem;
+		});
+	}
 }
