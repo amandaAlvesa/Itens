@@ -23,7 +23,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Entity
 @Table(name = "tb_item")
-public class Item {
+public class Item  {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

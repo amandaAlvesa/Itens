@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.amanda.itens.Enums.Categorias;
 import com.amanda.itens.Enums.DataVencimento;
+import com.amanda.itens.Enums.Ordenação;
 import com.amanda.itens.entities.Item;
 import com.amanda.itens.service.ItensService;
 
@@ -45,5 +46,10 @@ public class ItensController {
 	@GetMapping("/historico")
 	List<Item> listaHistorico(){
 		return listService.historico();
+	}
+	
+	@GetMapping("/ordenaçao")
+	List<Item>ordenacao(@RequestBody Ordenação ordem){
+		return listService.Ordem(ordem);
 	}
 }

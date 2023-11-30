@@ -2,6 +2,9 @@ package com.amanda.itens.service;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -10,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import com.amanda.itens.Enums.Categorias;
 import com.amanda.itens.Enums.DataVencimento;
+import com.amanda.itens.Enums.Ordenação;
 import com.amanda.itens.entities.Item;
 import com.amanda.itens.repository.ItemRepository;
 
@@ -24,13 +28,6 @@ public class ItensService {
 	}
 
 	public List<Item> pegarCategoria(Categorias categorias) {
-
-		qtdCategoria();
-
-		return repository.findByCategoria(categorias);
-	}
-
-	public void qtdCategoria() {
 		int limpeza = 0, alimentoPerecivel = 0, alimentoNaoPerecivel = 0;
 
 		for (int a = 0; a < retornarItens().size(); a++) {
@@ -46,6 +43,8 @@ public class ItensService {
 		System.out.println("Alimento Perecivel: " + alimentoPerecivel);
 		System.out.println("Alimento Não Perecivel: " + alimentoNaoPerecivel);
 		System.out.println("Limpeza: " + limpeza);
+
+		return repository.findByCategoria(categorias);
 	}
 
 	public List<Item> datasVencimento(DataVencimento data) {
@@ -100,7 +99,7 @@ public class ItensService {
 	}
 
 	public List<Item> historico() {
-		int aoContrario = (retornarItens().size()-1);
+		int aoContrario = (retornarItens().size() - 1);
 		List<Item> listaAoContrario = new ArrayList<Item>();
 		listaAoContrario.add(retornarItens().get(0));
 
@@ -108,9 +107,62 @@ public class ItensService {
 			listaAoContrario.add(retornarItens().get(d));
 		}
 		listaAoContrario.remove(0);
-		System.out.println("Lista: " + retornarItens().size()  + 
-				"\n Lista ao Contrario (historico): " + listaAoContrario.size());
+		System.out.println(
+				"Lista: " + retornarItens().size() + "\n Lista ao Contrario (historico): " + listaAoContrario.size());
 		return listaAoContrario;
 	}
-	
+
+	public List<Item> Ordem(Ordenação ordemEscolhida) {
+		List<Item> ordem = new ArrayList<Item>();
+		ordem.add(retornarItens().get(0));
+		ordem.remove(0);
+
+		for (int e = 0; e < retornarItens().size(); e++) {
+			ordem.add(retornarItens().get(e));
+		}
+
+		if (ordemEscolhida == Ordenação.PRODUTO) {
+			ordem.sort((p1, p2) -> {
+				String p = p1.getProduto();
+				return p.compareTo(p2.getProduto());
+			});
+		} else if(ordemEscolhida == Ordenação.COMPRADO) {
+			ordem.sort((c1, c2) -> {
+				LocalDate c = c1.getDataComprada();
+				return c.compareTo(c2.getDataComprada());
+			});
+		} else if(ordemEscolhida == Ordenação.VENCIMENTO) {
+			ordem.sort((v1, v2) -> {
+				LocalDate v = v1.getDataVencimento();
+				return v.compareTo(v2.getDataVencimento());
+			});
+		} else if(ordemEscolhida == Ordenação.QUANTIDADE) {
+			ordem.sort((q1, q2) -> {
+				Integer q = q1.getQuantidade();
+				return q.compareTo(q2.getQuantidade());
+			});
+		}
+
+		return ordem;
+	}
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
