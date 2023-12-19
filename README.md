@@ -18,3 +18,4 @@ Package Service - Para melhor manutenção criei ItemService, para retorno de ap
 
 Package Controller - Assim como o Service dividi Item e Itens, alterando também o @RequestMapping, instanciado de seu devido Service.
 
+Preparando a Interface Grafica Neste Repositorio: https://github.com/amandaAlvesa/ItemFront
